@@ -142,36 +142,74 @@
       background: rgba(46,230,197,0.12);
       color: var(--text);
     }
-    .hero-image {
-      flex: 0 1 360px;
-      height: 360px;
-      border-radius: 32px;
-      background: linear-gradient(135deg, rgba(6,12,25,0.9), rgba(14,20,33,0.95));
+    .hero-visual {
+      flex: 0 1 420px;
+      max-width: 540px;
+      height: 420px;
+      border-radius: 40px;
       border: 1px solid rgba(46,230,197,0.35);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.55);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.55);
+      background-image: linear-gradient(135deg, rgba(6,12,25,0.92), rgba(9,14,28,0.95)),
+                        url('assets/hero-chip-array.jpg');
+      background-size: cover;
+      background-position: center;
       overflow: hidden;
       position: relative;
     }
-    .hero-image::before {
-      content: "Lab Focus";
+    .hero-visual::before {
+      content: "";
       position: absolute;
-      top: 18px;
-      right: 18px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--accent);
-      font-weight: 600;
+      inset: -20% -10% 40% -10%;
+      background: radial-gradient(circle at 50% 50%, rgba(46,230,197,0.35), transparent 60%);
+      opacity: 0.8;
+      animation: drift 18s ease-in-out infinite;
     }
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: inherit;
-      filter: saturate(0.95) contrast(1.05);
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 180px 180px;
+      mix-blend-mode: screen;
+      opacity: 0.4;
+      animation: scan 12s linear infinite;
+    }
+    .visual-core {
+      position: absolute;
+      inset: 18px;
+      border-radius: 32px;
+      border: 1px solid rgba(244,184,96,0.4);
+      background: linear-gradient(135deg, rgba(6,10,20,0.2), rgba(46,230,197,0.08));
+      backdrop-filter: blur(4px);
+      box-shadow: inset 0 0 40px rgba(46,230,197,0.25);
+      animation: pulseGlow 5s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: inset 0 0 30px rgba(46,230,197,0.2);
+        border-color: rgba(244,184,96,0.35);
+      }
+      50% {
+        box-shadow: inset 0 0 60px rgba(46,230,197,0.45);
+        border-color: rgba(46,230,197,0.5);
+      }
+    }
+    @keyframes drift {
+      0%, 100% {
+        transform: translate3d(0,0,0) scale(1);
+      }
+      50% {
+        transform: translate3d(10%, -8%, 0) scale(1.05);
+      }
+    }
+    @keyframes scan {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-180px);
+      }
     }
     h1 {
       font-size: clamp(2.4rem, 5vw, 3.6rem);
@@ -262,6 +300,12 @@
       color: var(--muted);
       font-size: 0.9rem;
     }
+    /* Keeps pixel art razor-sharp across browsers */
+    .pixel-crisp {
+      image-rendering: pixelated;          /* modern browsers */
+      image-rendering: crisp-edges;        /* Safari/WebKit */
+      -ms-interpolation-mode: nearest-neighbor; /* legacy Edge/IE */
+    }
     @media (max-width: 720px) {
       header,
       section {
@@ -270,8 +314,10 @@
       .hero {
         flex-direction: column;
       }
-      .hero-image {
+      .hero-visual {
         width: 100%;
+        max-width: none;
+        height: 320px;
       }
     }
   </style>
@@ -294,8 +340,8 @@
           <a class="btn" href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact</a>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="assets/portfolio-website.png" alt="Pixel art raccoon carefully soldering an Arduino board in a lab">
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-core"></div>
       </div>
     </div>
   </header>
