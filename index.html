@@ -32,6 +32,8 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
+      position: relative;
+      overflow: hidden;
     }
     .hero {
       display: flex;
@@ -40,6 +42,67 @@
       width: 100%;
       align-items: center;
       justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-backdrop {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(49,215,255,0.08) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(49,215,255,0.08) 1px, transparent 1px);
+      background-size: 120px 120px;
+      opacity: 0.5;
+      transform: translateY(-20px) skewY(-4deg);
+      filter: blur(1px);
+    }
+    .chip {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border: 1px solid rgba(49,215,255,0.4);
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(49,215,255,0.4), transparent 60%);
+      box-shadow: 0 0 25px rgba(49,215,255,0.35);
+      animation: float 12s ease-in-out infinite;
+    }
+    .chip::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px dashed rgba(49,215,255,0.25);
+      border-radius: 16px;
+    }
+    .chip-one {
+      top: 6%;
+      left: 62%;
+      animation-delay: 0s;
+    }
+    .chip-two {
+      top: -4%;
+      left: 15%;
+      width: 160px;
+      height: 160px;
+      animation-duration: 16s;
+    }
+    .chip-three {
+      top: 18%;
+      right: -5%;
+      width: 140px;
+      height: 140px;
+      animation-delay: 4s;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(3deg);
+      }
     }
     .hero-text {
       flex: 1 1 320px;
@@ -195,6 +258,12 @@
 </head>
 <body>
   <header id="hero">
+    <div class="hero-backdrop" aria-hidden="true">
+      <div class="hero-grid"></div>
+      <span class="chip chip-one"></span>
+      <span class="chip chip-two"></span>
+      <span class="chip chip-three"></span>
+    </div>
     <div class="hero">
       <div class="hero-text">
         <p>Hi, I'm</p>
