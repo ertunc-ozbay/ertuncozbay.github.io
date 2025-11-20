@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ertunç Özbay | Portfolio</title>
+  <style>
+    :root {
+      --bg: #05060a;
+      --card: #0d0f1a;
+      --accent: #31d7ff;
+      --text: #f5f7ff;
+      --muted: #9fa6c1;
+      font-family: "Segoe UI", "Roboto", sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: radial-gradient(circle at top, rgba(49,215,255,0.15), transparent 45%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header,
+    section {
+      padding: 80px 8vw;
+    }
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hero-text {
+      flex: 1 1 320px;
+    }
+    .hero-text p {
+      color: var(--muted);
+      margin: 20px 0;
+      max-width: 540px;
+    }
+    .cta {
+      display: inline-flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .btn {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 12px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn.primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .btn:hover {
+      background: rgba(49,215,255,0.1);
+      color: var(--text);
+    }
+    .hero-image {
+      flex: 0 1 280px;
+      height: 280px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(49,215,255,0.4), rgba(49,215,255,0.05));
+      border: 2px dashed rgba(49,215,255,0.6);
+      display: grid;
+      place-items: center;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .section-card {
+      background: var(--card);
+      border: 1px solid rgba(49,215,255,0.2);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 40px;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .skills-list span {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(49,215,255,0.08);
+      border: 1px solid rgba(49,215,255,0.3);
+      font-weight: 600;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: rgba(8,10,24,0.9);
+      border: 1px solid rgba(49,215,255,0.2);
+      border-radius: 16px;
+      padding: 24px;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .project-card h3 {
+      color: var(--accent);
+    }
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 20px;
+      margin-top: 10px;
+    }
+    footer {
+      padding: 30px 8vw 60px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 720px) {
+      header,
+      section {
+        padding: 60px 6vw;
+      }
+      .hero {
+        flex-direction: column;
+      }
+      .hero-image {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="hero">
+    <div class="hero">
+      <div class="hero-text">
+        <p>Hi, I'm</p>
+        <h1>Ertunç Özbay</h1>
+        <p>Engineering Student & Maker focused on Electrical & Electronics innovation, embedded systems, and future-forward prototypes.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="hero-image">Profile Image</div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="section-card">
+      <h2>About Me</h2>
+      <p>Passionate Electrical & Electronics Engineering student with a curiosity for smart hardware, rapid prototyping, and translating ideas into tangible solutions. Always exploring new technologies, collaborating with multidisciplinary teams, and refining skills through hands-on experimentation.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-card">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <span>Arduino</span>
+        <span>C++</span>
+        <span>Python</span>
+        <span>PCB Design</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-card">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Project One</h3>
+          <p>Brief description placeholder for a hardware-focused build or research initiative.</p>
+        </div>
+        <div class="project-card">
+          <h3>Project Two</h3>
+          <p>Brief description placeholder highlighting embedded firmware experimentation.</p>
+        </div>
+        <div class="project-card">
+          <h3>Project Three</h3>
+          <p>Brief description placeholder showcasing PCB design and rapid prototyping.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-card">
+      <h2>Contact</h2>
+      <p>Open to collaborations, internships, and innovative challenges.</p>
+      <div class="contact-links">
+        <a href="mailto:ertunc@example.com">Email</a>
+        <a href="https://github.com/ertunc" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Ertunç Özbay. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
