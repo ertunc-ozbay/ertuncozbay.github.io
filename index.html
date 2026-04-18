@@ -3,29 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ertunç Özbay | Embedded Systems Portfolio</title>
-  <meta name="description" content="Ertunç Özbay — Electrical & Electronics Engineering student focused on Embedded Systems, Automation, and Maker Culture." />
-  <meta name="theme-color" content="#0a0f1f" />
+  <title>Ertunç Özbay | Temporary Portfolio</title>
+  <meta name="theme-color" content="#15171d" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
     :root {
-      --bg: #060a17;
-      --bg-soft: #0e1631;
-      --surface: rgba(18, 25, 52, 0.75);
-      --surface-strong: rgba(12, 20, 44, 0.9);
-      --text: #ecf2ff;
-      --muted: #a4b3d9;
-      --accent: #65f0d0;
-      --accent-2: #7aa7ff;
-      --ring: rgba(101, 240, 208, 0.42);
-      --border: rgba(155, 181, 255, 0.22);
-      --shadow: 0 20px 55px rgba(0, 0, 0, 0.45);
+      --bg: #0d0f13;
+      --bg-2: #191c22;
+      --metal: #282d36;
+      --line: rgba(197, 208, 224, 0.25);
+      --line-soft: rgba(255, 255, 255, 0.08);
+      --text: #edf1f7;
+      --muted: #a8b0bf;
+      --accent: #95a8c3;
+      --accent-bright: #d8e1ef;
     }
 
     * {
@@ -34,19 +31,18 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: "Manrope", "Segoe UI", Roboto, sans-serif;
-      background:
-        radial-gradient(650px 450px at 8% 8%, rgba(122, 167, 255, 0.18), transparent 65%),
-        radial-gradient(900px 600px at 90% 0%, rgba(101, 240, 208, 0.14), transparent 58%),
-        linear-gradient(140deg, #060a17, #050713 50%, #0a1023);
-      color: var(--text);
-      line-height: 1.7;
       min-height: 100vh;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(700px 420px at 8% -5%, rgba(255, 255, 255, 0.08), transparent 58%),
+        radial-gradient(600px 360px at 88% 4%, rgba(165, 179, 201, 0.12), transparent 56%),
+        linear-gradient(145deg, #0d0f13, #141820 50%, #0e1218);
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      overflow: hidden;
     }
 
     body::before {
@@ -55,534 +51,161 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 80px 80px;
-      mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-      z-index: -1;
+        linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px);
+      background-size: 62px 62px;
+      mask-image: radial-gradient(circle at center, black 35%, transparent 100%);
     }
 
-    .container {
-      width: min(1150px, 92vw);
-      margin-inline: auto;
-    }
-
-    .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 999;
+    .frame {
+      width: min(760px, 94vw);
+      background:
+        linear-gradient(165deg, rgba(53, 60, 73, 0.35), rgba(18, 21, 28, 0.86) 42%),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: clamp(24px, 4.8vw, 44px);
       backdrop-filter: blur(10px);
-      background: rgba(6, 10, 23, 0.72);
-      border-bottom: 1px solid rgba(122, 167, 255, 0.15);
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+      text-align: left;
+      animation: rise 0.9s ease both;
+      position: relative;
+      overflow: hidden;
     }
 
-    nav {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+    .frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.12) 48%, transparent 62%);
+      opacity: 0.28;
+      transform: translateX(-100%);
+      animation: sweep 8s linear infinite;
     }
 
-    .brand {
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      font-size: 1.04rem;
-    }
-
-    .brand span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: 0.25s ease;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--text);
-      border-color: rgba(122, 167, 255, 0.3);
-      background: rgba(255, 255, 255, 0.04);
-      outline: none;
-    }
-
-    section {
-      padding: 82px 0;
-    }
-
-    .hero {
-      padding: 96px 0 74px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 34px;
-      align-items: stretch;
-    }
-
-    .hero-copy {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: clamp(26px, 4vw, 44px);
-      box-shadow: var(--shadow);
-    }
-
-    .eyebrow {
+    .chip {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      border: 1px solid rgba(101, 240, 208, 0.45);
+      padding: 7px 14px;
       border-radius: 999px;
-      padding: 6px 14px;
-      color: var(--accent);
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      letter-spacing: 0.03em;
+      border: 1px solid var(--line);
+      color: var(--accent-bright);
+      font-weight: 600;
+      font-size: 0.86rem;
+      margin-bottom: 18px;
+      background: rgba(255, 255, 255, 0.03);
     }
 
     h1 {
-      font-size: clamp(2rem, 5vw, 3.7rem);
+      font-size: clamp(2rem, 5.4vw, 3.4rem);
+      letter-spacing: 0.02em;
       line-height: 1.1;
-      margin-bottom: 18px;
     }
 
-    .hero-copy p {
+    .subtitle,
+    .about {
       color: var(--muted);
-      max-width: 64ch;
+      margin-top: 12px;
+      font-size: clamp(0.98rem, 2.4vw, 1.08rem);
     }
 
-    .hero-actions {
-      margin-top: 24px;
+    .about {
+      margin-top: 14px;
+      max-width: 62ch;
+      line-height: 1.75;
+    }
+
+    .divider {
+      height: 1px;
+      width: 100%;
+      margin: 24px 0;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+    }
+
+    .actions {
+      margin-top: 8px;
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
     }
 
     .btn {
       text-decoration: none;
+      color: var(--text);
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      border-radius: 999px;
-      padding: 12px 20px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: 0.25s ease;
+      padding: 11px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01));
+      transition: 0.2s ease;
+      font-weight: 600;
     }
 
     .btn.primary {
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      color: #051022;
-      box-shadow: 0 10px 26px rgba(122, 167, 255, 0.26);
-    }
-
-    .btn.secondary {
-      color: var(--text);
-      border-color: rgba(122, 167, 255, 0.35);
-      background: rgba(255, 255, 255, 0.02);
+      color: #0e1117;
+      border-color: rgba(255, 255, 255, 0.2);
+      background: linear-gradient(120deg, #cfd8e8, #95a8c3);
     }
 
     .btn:hover {
       transform: translateY(-2px);
-    }
-
-    .hero-panel {
-      position: relative;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      min-height: 420px;
-      background:
-        linear-gradient(165deg, rgba(9, 16, 36, 0.9), rgba(5, 11, 28, 0.98)),
-        url("assets/website-final.png") center/cover;
-    }
-
-    .hero-panel::before,
-    .hero-panel::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-    }
-
-    .hero-panel::before {
-      width: 280px;
-      aspect-ratio: 1;
-      top: -80px;
-      right: -90px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(101, 240, 208, 0.5), transparent 65%);
-      animation: drift 10s ease-in-out infinite;
-    }
-
-    .hero-panel::after {
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-      background-size: 55px 55px;
-      opacity: 0.35;
-    }
-
-    .stats {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .stat {
-      background: rgba(8, 13, 29, 0.74);
-      border: 1px solid rgba(101, 240, 208, 0.25);
-      border-radius: 14px;
-      padding: 10px 12px;
-      backdrop-filter: blur(3px);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.1rem;
-      color: var(--accent);
-      line-height: 1.3;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.84rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--surface-strong);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    h2 {
-      font-size: clamp(1.4rem, 2.8vw, 2rem);
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .tag-list span {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 13px;
-      border-radius: 999px;
-      border: 1px solid rgba(122, 167, 255, 0.35);
-      background: rgba(255, 255, 255, 0.02);
-      font-weight: 700;
-      font-size: 0.86rem;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .project {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.02);
-      transition: 0.24s ease;
-      min-height: 170px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .project:hover {
-      border-color: var(--ring);
-      transform: translateY(-3px);
-    }
-
-    .project h3 {
-      color: #9dc2ff;
-      font-size: 1.06rem;
-    }
-
-    .project p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .project a {
-      margin-top: auto;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .contact-links {
-      margin-top: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .contact-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      text-decoration: none;
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px 14px;
-      transition: 0.22s ease;
-      background: rgba(255, 255, 255, 0.01);
-    }
-
-    .contact-links a:hover {
-      border-color: var(--ring);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .contact-links a i {
-      width: 18px;
-      text-align: center;
+      border-color: rgba(216, 225, 239, 0.6);
     }
 
     footer {
-      text-align: center;
-      padding: 32px 20px 46px;
+      margin-top: 22px;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.86rem;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+    @keyframes sweep {
+      0% {
+        transform: translateX(-120%);
+      }
+      100% {
+        transform: translateX(130%);
+      }
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes drift {
-      0%, 100% {
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+      }
+      to {
+        opacity: 1;
         transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(15px) scale(1.08);
-      }
-    }
-
-    @media (max-width: 940px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-panel {
-        min-height: 360px;
-      }
-
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      nav {
-        height: auto;
-        padding: 14px 0;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        width: 100%;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .card,
-      .hero-copy {
-        padding: 22px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="nav-wrap">
-    <div class="container">
-      <nav>
-        <div class="brand">Ertunç <span>Özbay</span></div>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+  <main class="frame">
+    <p class="chip"><i class="fa-solid fa-atom"></i> Temporary Futuristic Layout</p>
+    <h1>Ertunç Özbay</h1>
+    <p class="subtitle">Electrical & Electronics Engineering Student</p>
+    <p class="about">
+      I am focused on learning and building in embedded systems, automation, and practical hardware-software projects.
+      This is a simple temporary version of my website and will be replaced with a new concept later.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="actions">
+      <a class="btn primary" href="mailto:ertunc.ozbay@outlook.com"><i class="fa-solid fa-envelope"></i> Email</a>
+      <a class="btn" href="https://github.com/ertunc-ozbay" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
     </div>
-  </div>
 
-  <main class="container">
-    <section class="hero reveal" id="top">
-      <article class="hero-copy">
-        <p class="eyebrow"><i class="fa-solid fa-microchip"></i> Embedded Systems Journey</p>
-        <h1>Engineering ideas into <br />real, working systems.</h1>
-        <p>
-          I am an Electrical & Electronics Engineering student at Zonguldak Bülent Ecevit University.
-          My focus is on embedded development, automation workflows, and practical maker projects that
-          turn theory into tangible results.
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#projects"><i class="fa-solid fa-diagram-project"></i>Explore Projects</a>
-          <a class="btn secondary" href="#contact"><i class="fa-solid fa-paper-plane"></i>Contact Me</a>
-        </div>
-      </article>
-
-      <aside class="hero-panel" aria-hidden="true">
-        <div class="stats">
-          <div class="stat">
-            <strong>4+</strong>
-            <span>Core Technical Skills</span>
-          </div>
-          <div class="stat">
-            <strong>2026</strong>
-            <span>Portfolio Version</span>
-          </div>
-          <div class="stat">
-            <strong>∞</strong>
-            <span>Learning Mindset</span>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section id="about" class="reveal">
-      <div class="card">
-        <h2>About Me</h2>
-        <p class="muted">
-          I am currently a freshman (1st-year) student at
-          <a href="https://en.beun.edu.tr/" target="_blank" rel="noopener" style="color:#9dc2ff; font-weight:700;">Zonguldak Bülent Ecevit University</a>.
-          I am especially interested in embedded systems, automation, and maker culture.
-        </p>
-        <br />
-        <p class="muted">
-          My goal is to close the gap between theory and practice by building functional projects.
-          This portfolio is designed as a living record of progress and will continue to evolve with new skills and experiments.
-        </p>
-      </div>
-    </section>
-
-    <section class="grid-2">
-      <div class="card reveal" id="skills">
-        <h2>Skills & Focus</h2>
-        <p class="muted">Current tools and topics I actively study and apply:</p>
-        <div class="tag-list">
-          <span><i class="fa-solid fa-microchip"></i>Arduino</span>
-          <span><i class="fa-solid fa-code"></i>C++</span>
-          <span><i class="fa-brands fa-python"></i>Python</span>
-          <span><i class="fa-solid fa-vector-square"></i>PCB Design</span>
-          <span><i class="fa-solid fa-gears"></i>Automation</span>
-          <span><i class="fa-solid fa-wrench"></i>Prototyping</span>
-        </div>
-      </div>
-
-      <div class="card reveal" id="projects">
-        <h2>Highlighted Projects</h2>
-        <p class="muted">These can be replaced with your real projects whenever you are ready.</p>
-        <div class="projects">
-          <article class="project">
-            <h3>Smart Sensor Node</h3>
-            <p>Low-power sensor readout and data transfer prototype for environmental monitoring.</p>
-            <a href="#">Details coming soon <i class="fa-solid fa-arrow-right"></i></a>
-          </article>
-          <article class="project">
-            <h3>Automation Mini Cell</h3>
-            <p>Compact control experiment combining microcontroller logic and actuator response.</p>
-            <a href="#">Details coming soon <i class="fa-solid fa-arrow-right"></i></a>
-          </article>
-          <article class="project">
-            <h3>Custom PCB Exercise</h3>
-            <p>Design and validation flow from schematic to compact board layout and testing.</p>
-            <a href="#">Details coming soon <i class="fa-solid fa-arrow-right"></i></a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="reveal">
-      <div class="card">
-        <h2>Contact</h2>
-        <p class="muted">Open to collaborations, internships, and engineering opportunities.</p>
-        <div class="contact-links">
-          <a href="mailto:ertunc.ozbay@outlook.com" aria-label="Email Ertunç Özbay">
-            <i class="fa-solid fa-envelope"></i>
-            ertunc.ozbay@outlook.com
-          </a>
-          <a href="https://github.com/ertunc-ozbay" target="_blank" rel="noopener" aria-label="Visit GitHub profile">
-            <i class="fa-brands fa-github"></i>
-            github.com/ertunc-ozbay
-          </a>
-        </div>
-      </div>
-    </section>
+    <footer>© <span id="year"></span> Ertunç Özbay</footer>
   </main>
-
-  <footer>
-    © <span id="year"></span> Ertunç Özbay. All rights reserved.
-  </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, { threshold: 0.14 });
-
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
