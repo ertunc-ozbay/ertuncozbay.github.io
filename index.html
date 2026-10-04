@@ -185,6 +185,13 @@
   </style>
 </head>
 <body>
+  <script>
+    // Temporary redirect; append ?portfolio=1 to view the preserved page.
+    if (!new URLSearchParams(window.location.search).has("portfolio")) {
+      window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+    }
+  </script>
+
   <main class="frame">
     <p class="chip"><i class="fa-solid fa-atom"></i> Temporary Futuristic Layout</p>
     <h1>Ertunç Özbay</h1>
